@@ -1,11 +1,52 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://raman:raman@localhost/calorie_cruncher'
+db = SQLAlchemy(app)
 CORS(app)  # Autorise les requêtes cross-origin (CORS)
 
+@app.route('/')
+def test_db_connection():
+    try:
+        result = db.session.execute(text('SELECT * FROM users'))  # Exécute la requête SELECT
+        users = [dict(row) for row in result]  # Convertit les résultats en liste de dictionnaires
+        return jsonify(users)  # Retourne les utilisateurs au format JSON
+    except Exception as e:
+        return f'Erreur de connexion à la base de données: {str(e)}'
+
+
+"""
+Ceci est un commentaire
+sur plusieurs lignes.
+Il peut contenir plusieurs lignes de texte.
+
+
+
+# Définir le modèle d'utilisateur
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+
+# Exemple de route pour récupérer les utilisateurs depuis la base de données
+@app.route('/api/users', methods=['GET'])
+def get_users():
+    users = User.query.all()
+    user_list = [{'id': user.id, 'name': user.name} for user in users]
+    return jsonify(user_list)
+
+# Exemple de route pour créer un utilisateur dans la base de données
+@app.route('/api/create/users', methods=['POST'])
+def create_user():
+    user_data = request.get_json()
+    new_user = User(name=user_data['name'])
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify({'message': 'User created successfully'})
 
 # Exemple de route pour récupérer les utilisateurs
 @app.route('/api/users', methods=['GET'])
@@ -70,7 +111,7 @@ def creer_compte():
     utilisateur = Utilisateur(nom_utilisateur, mot_de_passe)
 
     return utilisateur
-
+"""
 
 # Lancer le serveur Flask
 if __name__ == '__main__':
