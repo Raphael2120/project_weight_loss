@@ -58,15 +58,15 @@ export const Header = () => {
               contentLabel="Example Modal"
             >
               <div className="modal">
-                <h1>Register your recipe</h1>
-                <label>Your Recipe</label>
+                <h1>Sign in</h1>
+                <label>Username</label>
                 <input type="text" />
-                <label>Author's name</label>
-                <input type="text" />
+                <label>Password</label>
+                <input type="password" />
                 <button type="text" className='modalBtn' onClick={() => { 
                   alert('recipe recevied');
                   closeModal();
-                }}>REGISTER RECIPE</button>
+                }}>Log In</button>
               </div>
               </Modal>
           </div>
