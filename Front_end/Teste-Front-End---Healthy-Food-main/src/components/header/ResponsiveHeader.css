@@ -1,31 +1,39 @@
+@media only screen and (max-width: 600px) {
+  .wraper {
+    width: 95%;
+    flex-direction: column;
+    height: auto;
+  }
 
-@media all and (max-width: 600px) { 
+  .logo h1 {
+    font-size: 1.5rem;
+  }
 
-    header {
-        background-color: #92d362;
-    }
-    .wraper ul{
-      display: none;
-      
-    }
-  
-    .wraper {
-      justify-content: space-between;
-      width: 85%;
-    }
-  
-    .wraper h1 {
-      color: white;
-      font-size: 2rem;
-      
-    }
+  nav {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 
-    nav {
-        width: 5rem;
-    }
+  nav ul {
+    width: 100%;
+    flex-direction: column;
+  }
 
-    button {
-        width: 5rem;
-        height: 1.5rem;
-    }
-   }
+  li {
+    font-size: 0.8rem;
+    padding: 30px 0; /* Ajout de l'espace pour le toucher */
+  }
+
+  button {
+    width: 50px;
+    font-size: 0.7rem;
+  }
+
+  .modal {
+    height: auto;
+  }
+
+  .modal input {
+    width: 80%;
+  }
+}

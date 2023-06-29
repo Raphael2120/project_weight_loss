@@ -34,10 +34,15 @@
     justify-content: center;
   }
 
+   .handle p {
+    font-size: 1rem;
+  }
+
   .handle input {
     width: 9rem;
     height: 2.5rem;
     font-size: .7rem;
+    margin: 0.3rem;
     color: black;
   }
 

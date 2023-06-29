@@ -38,8 +38,19 @@ section {
     width: 100%;
 }
 
+.handle p {
+  color: #92d362;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.handle input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
 .leftContent button {
-    width: 50px;
+    width: 200px;
     background-color: #92d362;
     height: 50px;
     border-radius: 10px;
@@ -59,4 +70,8 @@ section {
     top: 0;
     right: 0;
     z-index: -1;
+}
+
+button p{
+    font-color: white;
 }

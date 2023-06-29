@@ -9,34 +9,25 @@ describe("Testing Hero component", () => {
     const mainHead = screen.getByRole("heading");
 
     expect(mainHead).toBeInTheDocument();
-    expect(mainHead).toHaveTextContent("Ready for Trying a new recipe?");
+    expect(mainHead).toHaveTextContent("Calculate Your BMI");
   });
 
-  it("should show a image with correctly alternative text", () => {
+  it("should show two input fields for height and weight", () => {
     render(<Hero />);
 
-    const mainImg = screen.getByRole("img");
+    const inputs = screen.getAllByRole("spinbutton");
 
-    expect(mainImg).toBeInTheDocument();
-    expect(mainImg).toHaveAttribute("alt", "draw with healthy calcule");
-  });
-  
-  it("should show a input to search recipes", () => {
-    render(<Hero />);
-
-    const mainInput = screen.getByRole("textbox");
-
-    expect(mainInput).toBeInTheDocument();
-    expect(mainInput).toHaveAttribute("placeholder", "Search healthy recipes");
-    expect(mainInput).toHaveAttribute("type", "text");
+    expect(inputs.length).toBe(2);
+    expect(inputs[0]).toHaveAttribute("placeholder", "Enter your height in cm");
+    expect(inputs[1]).toHaveAttribute("placeholder", "Enter your weight in kg");
   });
 
-  it("should show a button to find a new recipe", () => {
+  it("should show a button to calculate BMI", () => {
     render(<Hero />);
 
     const mainBtn = screen.getByRole("button");
 
     expect(mainBtn).toBeInTheDocument();
-    expect(mainBtn).toHaveAttribute("type", "text");
+    expect(mainBtn).toHaveTextContent("Calculate");
   });
 });
