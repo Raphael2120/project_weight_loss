@@ -1,7 +1,12 @@
+import { Link } from 'react-router-dom';
 import "./header.css";
 import "./ResponsiveHeader.css";
 import Modal from "react-modal";
 import { useState } from "react";
+import { BestRecipes } from "../main/ourBestRecipes/BestRecipes";
+import { BestServices } from "../main/bestServices/BestServices";
+import { Contact } from "../main/contact/Contact";
+import { Blog } from "../main/blog/Blog";
 
 const customStyles = {
   content: {
@@ -39,13 +44,19 @@ export const Header = () => {
         <nav>
           <ul>
             <li>
-              <a href="/">BMI Calculator</a>
+              <Link to="/">Accueil</Link>
             </li>
             <li>
-              <a href="/">TIPS</a>
+              <Link to="/best-recipes">Best Recipes</Link>
             </li>
             <li>
-              <a href="/">JOIN</a>
+              <Link to="/best-services">Best Services</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/blog">Blog</Link>
             </li>
           </ul>
           <div className="btn">
