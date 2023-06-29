@@ -22,7 +22,7 @@ export const BestRecipes = () => {
                     src={PicRecipe1}
                     alt='A image of a running man'/>
 
-                    <RecipePost title='Shoulders and upper back'
+                    <RecipePost title='Shoulders & upper back'
                     src={PicRecipe2}
                     alt='A image of a woman lifting weights'/>
 
