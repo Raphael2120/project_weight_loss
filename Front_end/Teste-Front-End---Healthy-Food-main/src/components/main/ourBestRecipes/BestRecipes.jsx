@@ -18,21 +18,21 @@ export const BestRecipes = () => {
                 </div>
                 
                 <div className="recipe-posts">
-                    <RecipePost title='Broccoli Salad With Bacon' 
+                    <RecipePost title='Fasted Cardio'
                     src={PicRecipe1}
-                    alt='A imagem of a beauty Broccoli Salad With Bacon'/>
+                    alt='A image of a running man'/>
 
-                    <RecipePost title='Classic Beef Burgers'
+                    <RecipePost title='Shoulders and upper back'
                     src={PicRecipe2}
-                    alt='A imagem of a beauty Classic Beef Burgers'/>
+                    alt='A image of a woman lifting weights'/>
 
-                    <RecipePost title='Classic Potato Salad'
+                    <RecipePost title='Tone your legs'
                     src={PicRecipe3}
-                    alt='A imagem of a beauty Classic Potato Salad'/>
+                    alt='A image of a woman on leg press'/>
 
-                    <RecipePost title='Cherry Cobbler on the Grill'
+                    <RecipePost title='Strengthen abs and back'
                     src={PicRecipe4}
-                    alt='A imagem of a beauty Cherry Cobbler on the Grill'/>
+                    alt='A image of a man lifting weights'/>
                 </div>
             </div>
         </section>
