@@ -8,9 +8,9 @@ export const Hero = () => {
     <section className="HeroSec">
       <div className="contentWrapper">
         <div className="leftContent">
-          <h2>Ready for Trying a new recipe?</h2>
+          <h2>Ready to lose weight?</h2>
           <div className="handle">
-            <input type="text" placeholder="Search healthy recipes" />
+            <input type="text" placeholder="Search workout programs and healthy recipes" />
             <button type="text">🔎</button>
           </div>
         </div>

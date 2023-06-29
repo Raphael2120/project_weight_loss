@@ -2,7 +2,7 @@ import './BestRecipes.css'
 import './ResponsiveRecipes.css'
 import { RecipePost } from './Post/RecipePost'
 
-import PicRecipe1 from '../../../assets/comida_1.svg'
+import PicRecipe1 from '../../../assets/cardio.jpg'
 import PicRecipe2 from '../../../assets/comida_2.svg'
 import PicRecipe3 from '../../../assets/comida_3.svg'
 import PicRecipe4 from '../../../assets/comida_4.svg'
@@ -12,8 +12,9 @@ export const BestRecipes = () => {
         <section className="bRecipes">
             <div className="recipes">
                 <div className="infos">
-                    <h2>Our Best Recipes</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vakalia and Consonantia, there live the blind texts</p>
+                    <h2>Our Best Workouts</h2>
+                    <p>To help your body burn fat, it is important to use it in different ways.
+                     Cardio and strength training are complementary. </p>
                 </div>
                 
                 <div className="recipe-posts">

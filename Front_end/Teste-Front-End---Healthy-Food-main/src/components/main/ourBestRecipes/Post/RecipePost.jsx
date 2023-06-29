@@ -10,7 +10,7 @@ export const RecipePost = (props) => {
            </div>
            <div className="rigthInfo">
                <h2>{props.title}</h2>
-               <button>See Recipe</button>
+               <button>See Program</button>
            </div>
        </div>
     )
