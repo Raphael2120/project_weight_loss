@@ -34,22 +34,22 @@ export const Header = () => {
     <header>
       <div className="wraper">
         <div className="logo">
-          <h1>Healthy Food</h1>
+          <h1>Weight Loss App</h1>
         </div>
         <nav>
           <ul>
             <li>
-              <a href="/">HEALTHY RECIPES</a>
+              <a href="/">BMI Calculator</a>
             </li>
             <li>
-              <a href="/">BLOG</a>
+              <a href="/">TIPS</a>
             </li>
             <li>
               <a href="/">JOIN</a>
             </li>
           </ul>
           <div className="btn">
-            <button type="text" onClick={openModal}>REGISTER</button>
+            <button type="text" onClick={openModal}>LOGIN</button>
             <Modal
               isOpen={modalIsOpen}
               onAfterOpen={afterOpenModal}
