@@ -47,8 +47,16 @@
   }
 
   .handle button {
-    width: 2.5rem;
+    width: 5em;
     height: 2.5rem;
     margin-left: 1.2rem;
+  }
+
+  .handle button p{
+    color:black;
+  }
+
+    .error {
+    font-size: 1rem;
   }
 }
