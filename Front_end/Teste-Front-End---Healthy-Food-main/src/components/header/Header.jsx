@@ -2,6 +2,8 @@ import "./header.css";
 import "./ResponsiveHeader.css";
 import Modal from "react-modal";
 import { useState } from "react";
+import axios from 'axios';
+
 
 const customStyles = {
   content: {
@@ -27,8 +29,22 @@ export const Header = () => {
   }
 
   function closeModal() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  axios.post('http://localhost:5000/register-user', { email, password })
+    .then(response => {
+      alert(response.data.message); // Affiche une alerte lorsque l'API répond avec succès
+      closeModal();
+    })
+    .catch(error => {
+      console.error(error);
+      // Gérez les erreurs de connexion à l'API
+    });
     setIsOpen(false);
   }
+
+
 
   return (
     <header>
@@ -58,13 +74,13 @@ export const Header = () => {
               contentLabel="Example Modal"
             >
               <div className="modal">
-                <h1>Register your recipe</h1>
-                <label>Your Recipe</label>
-                <input type="text" />
-                <label>Author's name</label>
-                <input type="text" />
+                <h1>Inscription</h1>
+                <label>E-mail</label>
+                <input type="text" id="email"/>
+                <label>Password</label>
+                <input type="text" id="password" />
                 <button type="text" className='modalBtn' onClick={() => { 
-                  alert('recipe recevied');
+                  alert('recipe received');
                   closeModal();
                 }}>REGISTER RECIPE</button>
               </div>
