@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
 import "./ResponsiveHero.css";
-
 import HeroImg from "../../../assets/Illustration.svg";
+import axios from 'axios';
 
 export const Hero = () => {
   const [height, setHeight] = useState("");
@@ -36,6 +36,17 @@ export const Hero = () => {
         } else {
           setBmiCategory("Obésité de classe III");
         }
+
+        // Envoyer la valeur de l'IMC au backend
+        axios.post('/compare-imc', { imc: bmi })
+          .then(response => {
+            // Traitez la réponse du serveur ici
+            console.log(response.data);
+          })
+          .catch(error => {
+            // Traitez les erreurs de la requête ici
+            console.error(error);
+          });
       }
     }
   };
@@ -78,3 +89,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+export default Hero;
