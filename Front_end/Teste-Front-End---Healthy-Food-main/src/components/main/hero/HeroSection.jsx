@@ -38,7 +38,7 @@ export const Hero = () => {
         }
 
         // Envoyer la valeur de l'IMC au backend
-        axios.post('/compare-imc', { imc: bmi })
+        axios.post('/get-imc-values', { imc: bmi })
           .then(response => {
             // Traitez la réponse du serveur ici
             console.log(response.data);
