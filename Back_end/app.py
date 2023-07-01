@@ -3,14 +3,9 @@ from flask_cors import CORS
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+from User import User, app, db
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://raman:raman@localhost/calorie_cruncher'
-db = SQLAlchemy(app)
-CORS(app)  # Autorise les requêtes cross-origin (CORS)
-
-
-@app.route('/')
+"""@app.route('/')
 def test_db_connection():
     try:
         result = db.session.execute(text('SELECT * FROM users'))  # Exécute la requête SELECT
@@ -35,18 +30,7 @@ def register_recipe():
     # Retournez une réponse JSON indiquant le succès ou l'échec de l'enregistrement
     # return jsonify({'message': 'Recette enregistrée', 'recipe': recipe, 'author': author})
 
-
-# Créez le modèle de données pour l'utilisateur
-class User(db.Model):
-    __tablename__ = 'users'
-
-    id_user = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(25), nullable=True)
-    password = db.Column(db.String(16), nullable=True)
-
-    def __init__(self, email, password):
-        self.email = email
-        self.password = password
+"""
 
 
 @app.route('/register-user', methods=['POST'])
