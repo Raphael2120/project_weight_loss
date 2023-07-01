@@ -65,7 +65,7 @@ def register_user():
         return jsonify(response), 500
 
 
-@app.route('/get-imc-values', methods=['GET'])
+@app.route('/get-imc-values', methods=['POST'])
 def get_imc_values():
     try:
         # Exécutez une requête SELECT pour récupérer les valeurs du champ IMC
