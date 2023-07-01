@@ -65,6 +65,31 @@ def register_user():
         return jsonify(response), 500
 
 
+@app.route('/get-imc-values', methods=['GET'])
+def get_imc_values():
+    try:
+        # Exécutez une requête SELECT pour récupérer les valeurs du champ IMC
+        result = db.session.execute(text('SELECT IMC_range FROM program'))
+        imc_values = get_imc_values().json  # Récupérer les valeurs de l'IMC à partir de la route précédente
+        imc_input = float(request.json['imc'])  # Récupérer la valeur de l'IMC depuis la requête POST
+
+        # Récupérez les résultats et traitez les valeurs de l'IMC
+        imc_values = []
+        for row in result:
+            imc_value = row[0]
+            imc_value = imc_value.replace(" ", "").split("-")
+            imc_value = [int(value) for value in imc_value]
+            imc_values.append(imc_value)
+        # Utiliser les valeurs de l'IMC dans une condition if par exemple
+        # Comparer la valeur de l'IMC avec les valeurs récupérées de la base de données
+        for imc_range in imc_values:
+            if imc_range[0] <= imc_input <= imc_range[1]:
+                return jsonify({'message': 'IMC within range', 'imc_range': imc_range})
+        return jsonify(imc_values)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 # Lancer le serveur Flask
 if __name__ == '__main__':
     app.run()
