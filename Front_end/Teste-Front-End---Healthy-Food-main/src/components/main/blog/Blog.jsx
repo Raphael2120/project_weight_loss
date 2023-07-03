@@ -9,6 +9,10 @@ import BlogPic3 from "../../../assets/bloco_image_3.svg";
 import ProfilePic from "../../../assets/profile.jpg";
 
 export const Blog = () => {
+  const handlePostClick = (url) => {
+    // Vous pouvez ajouter ici une logique supplémentaire avant de rediriger vers l'URL
+    window.location.href = url;
+  };
   return (
     <section className="blog">
       <div className="blogWrapper">
@@ -24,7 +28,8 @@ export const Blog = () => {
             <div className="postBtn">
             <button className="left">←</button>
             </div>
-            
+
+          <a href="https://www.healthyjulia.com/" onClick={() => handlePostClick("URL_DE_DESTINATION_POUR_LE_PREMIER_ARTICLE")}>
           <PostBlog
             src={BlogPic1}
             alt="alimento1"
@@ -33,6 +38,7 @@ export const Blog = () => {
             name="fabio"
             author="Fabio de Andrade"
           />
+          </a>
 
           <PostBlog
             src={BlogPic2}

@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-export const Hero = () => {
+export const Hero = ({ setImcValue }) => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [bmi, setBmi] = useState(null);
@@ -26,22 +26,24 @@ export const Hero = () => {
         const heightInMeters = height / 100;
         const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
 
+        setBmi(bmi);  // Vous définissez déjà l'IMC ici
+
+        // Mettre à jour l'IMC dans Container
+        setImcValue(bmi);
+
         // Envoyer la valeur de l'IMC au backend
         axios.post('http://127.0.0.1:5000/get-imc-values', { imc: bmi })
           .then(response => {
             console.log('Informations successfully sent to the backend');
 
-        // Récupérer le type d'alerte, le message et l'URL de redirection depuis la réponse JSON
-        const alertType = response.data.alert;
-        const message = response.data.message;
-        const redirectURL = response.data.redirectURL;
+            // Récupérer le type d'alerte, le message et l'URL de redirection depuis la réponse JSON
+            const alertType = response.data.alert;
+            const message = response.data.message;
+            const redirectURL = response.data.redirectURL;
 
             // Mettre à jour l'état avec le type d'alerte et le message
             setAlertType(alertType);
             setAlertMessage(message);
-
-            // Mettre à jour l'état avec les résultats de l'IMC
-            setBmi(bmi);
 
             if (bmi < 18.5) {
               setBmiCategory("Inférieur au poids normal");
@@ -57,8 +59,8 @@ export const Hero = () => {
               setBmiCategory("Obésité de classe III");
             }
 
-        // Effectuer la redirection vers la page spécifiée
-        navigate(redirectURL);
+            // Effectuer la redirection vers la page spécifiée
+            navigate(redirectURL);
           })
           .catch(error => {
             console.error(error);
