@@ -3,6 +3,8 @@ import "./ResponsiveHeader.css";
 import Modal from "react-modal";
 import { useState } from "react";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 
 const customStyles = {
@@ -50,18 +52,24 @@ export const Header = () => {
     <header>
       <div className="wraper">
         <div className="logo">
-          <h1>Healthy Food</h1>
+          <h1>Weight Loss App</h1>
         </div>
         <nav>
           <ul>
             <li>
-              <a href="/">HEALTHY RECIPES</a>
+              <Link to="/">Accueil</Link>
             </li>
             <li>
-              <a href="/">BLOG</a>
+              <Link to="/best-recipes">Best Recipes</Link>
             </li>
             <li>
-              <a href="/">JOIN</a>
+              <Link to="/best-services">Best Services</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/blog">Blog</Link>
             </li>
           </ul>
           <div className="btn">
@@ -79,7 +87,7 @@ export const Header = () => {
                 <input type="text" id="email"/>
                 <label>Password</label>
                 <input type="text" id="password" />
-                <button type="text" className='modalBtn' onClick={() => { 
+                <button type="text" className='modalBtn' onClick={() => {
                   alert('recipe received');
                   closeModal();
                 }}>REGISTER RECIPE</button>

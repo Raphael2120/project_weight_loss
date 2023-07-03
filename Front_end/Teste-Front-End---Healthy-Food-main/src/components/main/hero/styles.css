@@ -38,12 +38,23 @@ section {
     width: 100%;
 }
 
+.handle button p {
+  color: white;
+  font-size: 13px;
+  padding: 5px;
+}
+
+.handle input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
 .leftContent button {
-    width: 50px;
+    width: 75px;
     background-color: #92d362;
     height: 50px;
     border-radius: 10px;
-    
+
 }
 
 .leftContent h2 {
@@ -59,4 +70,14 @@ section {
     top: 0;
     right: 0;
     z-index: -1;
+}
+
+button p{
+    font-color: white;
+}
+
+.error {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }

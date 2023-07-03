@@ -34,16 +34,29 @@
     justify-content: center;
   }
 
+   .handle p {
+    font-size: 1rem;
+  }
+
   .handle input {
     width: 9rem;
     height: 2.5rem;
     font-size: .7rem;
+    margin: 0.3rem;
     color: black;
   }
 
   .handle button {
-    width: 2.5rem;
+    width: 5em;
     height: 2.5rem;
     margin-left: 1.2rem;
+  }
+
+  .handle button p{
+    color:black;
+  }
+
+    .error {
+    font-size: 1rem;
   }
 }

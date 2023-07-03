@@ -1,39 +1,65 @@
-import './BestRecipes.css'
-import './ResponsiveRecipes.css'
-import { RecipePost } from './Post/RecipePost'
-
-import PicRecipe1 from '../../../assets/comida_1.svg'
-import PicRecipe2 from '../../../assets/comida_2.svg'
-import PicRecipe3 from '../../../assets/comida_3.svg'
-import PicRecipe4 from '../../../assets/comida_4.svg'
+import React, { useState, useEffect } from 'react';
+import './BestRecipes.css';
+import './ResponsiveRecipes.css';
+import { RecipePost } from './Post/RecipePost';
+import PicRecipe1 from '../../../assets/comida_1.jpg';
 
 export const BestRecipes = () => {
-    return (
-        <section className="bRecipes">
-            <div className="recipes">
-                <div className="infos">
-                    <h2>Our Best Recipes</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vakalia and Consonantia, there live the blind texts</p>
-                </div>
-                
-                <div className="recipe-posts">
-                    <RecipePost title='Broccoli Salad With Bacon' 
-                    src={PicRecipe1}
-                    alt='A imagem of a beauty Broccoli Salad With Bacon'/>
+  const [recipes, setRecipes] = useState([]);
+  const [imcValue, setImcValue] = useState(null);
+  const [error, setError] = useState(null);
 
-                    <RecipePost title='Classic Beef Burgers'
-                    src={PicRecipe2}
-                    alt='A imagem of a beauty Classic Beef Burgers'/>
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/get-imc-values', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({}),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data && data.imc_values) {
+          setRecipes(data.imc_values);
+          setImcValue(data.imc_value);
+        } else {
+          setError('No recipes found');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setError('Error fetching recipes');
+      });
+  }, []);
 
-                    <RecipePost title='Classic Potato Salad'
-                    src={PicRecipe3}
-                    alt='A imagem of a beauty Classic Potato Salad'/>
+  if (error) {
+    return <p>{error}</p>;
+  }
 
-                    <RecipePost title='Cherry Cobbler on the Grill'
-                    src={PicRecipe4}
-                    alt='A imagem of a beauty Cherry Cobbler on the Grill'/>
-                </div>
-            </div>
-        </section>
-    )
-}
+  return (
+    <section className="bRecipes">
+      <div className="recipes">
+        <div className="infos">
+          <h2>Our Best Workouts</h2>
+          <p>
+            To help your body burn fat, it is important to use it in different ways.
+            Cardio and strength training are complementary.
+          </p>
+          <p>IMC Value: {imcValue}</p>
+        </div>
+
+        <div className="recipe-posts">
+          {recipes.map((recipe) => (
+            <RecipePost
+              key={recipe.id_program}
+              title={recipe.name_program}
+              src={PicRecipe1}
+              alt={recipe.desc_program}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
