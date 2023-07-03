@@ -28,4 +28,14 @@
         width: 5rem;
         height: 1.5rem;
     }
+
+
+    .modal {
+    height: auto;
+    }
+
+    .modal input {
+    width: 80%;
+    }
+
    }
